@@ -1,0 +1,9 @@
+export const ACCOUNT_STATUS_ACTIVE = 'active';
+export const ACCOUNT_STATUS_SUSPENDED = 'suspended';
+export const ACCOUNT_STATUS_DELETED = 'deleted';
+
+export const ACCOUNT_STATUS_ENUM = [
+  ACCOUNT_STATUS_ACTIVE,
+  ACCOUNT_STATUS_SUSPENDED,
+  ACCOUNT_STATUS_DELETED,
+];
