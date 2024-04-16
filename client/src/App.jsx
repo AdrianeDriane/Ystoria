@@ -1,5 +1,7 @@
+import SignUpForm from './SignUpForm';
+
 const App = () => {
-  return <div className="">Hello, world!</div>;
+  return <SignUpForm />;
 };
 
 export default App;
