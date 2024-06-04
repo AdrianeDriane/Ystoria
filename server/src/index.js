@@ -1,11 +1,13 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import { MONGOD_BURL, PORT } from './config/config.js';
+import { MONGODB_URL, PORT } from './config/config.js';
 import { User } from './models/UserModel.js';
+import cors from 'cors';
 
 const app = express();
 
 app.use(express.json());
+app.use(cors());
 
 app.post('/user/signup', async (req, res) => {
   try {
@@ -47,6 +49,7 @@ app.post('/user/signup', async (req, res) => {
     };
 
     const user = await User.create(newUser);
+    console.log('Successful user creation.');
     return res.status(201).send(user);
   } catch (err) {
     console.log(err.message);
@@ -55,7 +58,7 @@ app.post('/user/signup', async (req, res) => {
 });
 
 mongoose
-  .connect(MONGOD_BURL)
+  .connect(MONGODB_URL)
   .then(() => {
     console.log('SUCCESS: App connected to database!');
     app.listen(PORT, () => {
