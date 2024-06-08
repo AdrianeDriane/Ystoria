@@ -1,7 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import { MONGODB_URL, PORT } from './src/config/config.js';
-import { User } from './src/models/UserModel.js';
+import { MONGODB_URL, PORT } from '../src/config/config.js';
+import { User } from '../src/models/UserModel.js';
 import cors from 'cors';
 
 const app = express();
