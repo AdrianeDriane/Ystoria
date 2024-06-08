@@ -9,6 +9,7 @@ const SignUpForm = () => {
     password_hash: '',
     full_name: '',
   });
+  axios.defaults.withCredentials = true;
 
   const handleChange = (e) => {
     setFormData({
