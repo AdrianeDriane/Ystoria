@@ -1,24 +1,13 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import { MONGODB_URL, PORT } from '../src/config/config.js';
-import { User } from '../src/models/UserModel.js';
+import { MONGODB_URL, PORT } from './src/config/config.js';
+import { User } from './src/models/UserModel.js';
 import cors from 'cors';
 
 const app = express();
 
 app.use(express.json());
-
-// const corsOptions = {
-//   origin: 'https://ystoria.vercel.app',
-//   methods: '*', // Allow all methods
-//   // allowedHeaders: ['Content-Type'],
-//   // credentials: true,
-// };
-
-// app.use(cors(corsOptions));
-// app.options('*', cors(corsOptions));
 app.use(cors());
-app.options('*', cors());
 
 app.get('/', (req, res) => {
   res.send('Hello, world!');
