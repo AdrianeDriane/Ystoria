@@ -9,11 +9,13 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: 'https://ystoria.vercel.app/',
-    methods: ['POST', 'GET'],
+    origin: 'https://ystoria.vercel.app',
+    methods: ['POST', 'GET', 'OPTIONS'],
     credentials: true,
   })
 );
+
+app.options('*', cors());
 
 app.post('/user/signup', async (req, res) => {
   try {
