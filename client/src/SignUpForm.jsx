@@ -43,11 +43,7 @@ const SignUpForm = () => {
       post_history: null,
     };
     axios
-      .post('https://ystoria-api.vercel.app/user/signup', data, {
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded', // Change this to your desired content type
-        },
-      })
+      .post('https://ystoria-api.vercel.app/user/signup', data)
       .then(() => {
         setIsLoading(false);
 
