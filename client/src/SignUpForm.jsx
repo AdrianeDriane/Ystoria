@@ -9,7 +9,6 @@ const SignUpForm = () => {
     password_hash: '',
     full_name: '',
   });
-  axios.defaults.withCredentials = true;
 
   const handleChange = (e) => {
     setFormData({
@@ -44,7 +43,7 @@ const SignUpForm = () => {
       post_history: null,
     };
     axios
-      .post('https://ystoria-api.vercel.app/user/signup', data)
+      .post('http://ystoria-api.vercel.app/user/signup', data)
       .then(() => {
         setIsLoading(false);
 
