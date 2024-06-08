@@ -8,15 +8,17 @@ const app = express();
 
 app.use(express.json());
 
-const corsOptions = {
-  origin: 'https://ystoria.vercel.app',
-  methods: '*', // Allow all methods
-  // allowedHeaders: ['Content-Type'],
-  // credentials: true,
-};
+// const corsOptions = {
+//   origin: 'https://ystoria.vercel.app',
+//   methods: '*', // Allow all methods
+//   // allowedHeaders: ['Content-Type'],
+//   // credentials: true,
+// };
 
-app.use(cors(corsOptions));
-app.options('*', cors(corsOptions));
+// app.use(cors(corsOptions));
+// app.options('*', cors(corsOptions));
+app.use(cors());
+app.options('*', cors());
 
 app.get('/', (req, res) => {
   res.send('Hello, world!');
