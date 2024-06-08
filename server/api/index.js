@@ -1,7 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import { MONGODB_URL, PORT } from './config/config.js';
-import { User } from './models/UserModel.js';
+import { MONGODB_URL, PORT } from '../src/config/config.js';
+import { User } from '../src/models/UserModel.js';
 import cors from 'cors';
 
 const app = express();
@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: ['https://ystoria.vercel.app'],
+    origin: 'https://ystoria.vercel.app',
     methods: ['POST', 'GET'],
     credentials: true,
   })
