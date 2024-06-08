@@ -9,11 +9,20 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: 'https://ystoria.vercel.app',
+    origin: 'https://ystoria.vercel.app/',
     methods: ['POST', 'GET'],
     credentials: true,
   })
 );
+
+// Handle preflight requests for all routes
+app.options('*', (req, res) => {
+  res.header('Access-Control-Allow-Origin', 'https://ystoria.vercel.app');
+  res.header('Access-Control-Allow-Methods', 'POST, GET, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.header('Access-Control-Allow-Credentials', 'true');
+  res.sendStatus(200);
+});
 
 app.post('/user/signup', async (req, res) => {
   try {
