@@ -7,11 +7,16 @@ import cors from 'cors';
 const app = express();
 
 app.use(express.json());
-app.use(
-  cors({
-    origin: 'https://ystoria.vercel.app',
-  })
-);
+
+const corsOptions = {
+  origin: 'https://ystoria.vercel.app',
+  methods: '*', // Allow all methods
+  // allowedHeaders: ['Content-Type'],
+  // credentials: true,
+};
+
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
 
 app.get('/', (req, res) => {
   res.send('Hello, world!');
