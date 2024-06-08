@@ -11,11 +11,19 @@ app.use(
   cors({
     origin: 'https://ystoria.vercel.app',
     methods: ['POST', 'GET', 'OPTIONS'],
+    allowedHeaders: ['Content-Type'],
     credentials: true,
   })
 );
 
-app.options('*', cors());
+// Handle preflight requests for all routes
+app.options('*', (req, res) => {
+  res.header('Access-Control-Allow-Origin', 'https://ystoria.vercel.app');
+  res.header('Access-Control-Allow-Methods', 'POST, GET, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  res.header('Access-Control-Allow-Credentials', 'true');
+  res.sendStatus(204);
+});
 
 app.post('/user/signup', async (req, res) => {
   try {
